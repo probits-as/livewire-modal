@@ -123,13 +123,22 @@ class Modal extends Component
     {
         if (config('wire-elements-modal.include_js', true)) {
             $jsPath = __DIR__.'/../public/modal.js';
+            if (config('wire-elements-modal.bootstrap_3', false)) {
+                $jsPath = __DIR__.'/../public/modal-bootstrap3.js';
+            }
         }
 
         if (config('wire-elements-modal.include_css', false)) {
             $cssPath = __DIR__.'/../public/modal.css';
         }
 
-        return view('wire-elements-modal::modal', [
+        $view = 'wire-elements-modal::modal';
+
+        if (config('wire-elements-modal.bootstrap_3', false)) {
+            $view = 'wire-elements-modal::modal-bootstrap3';
+        }
+
+        return view($view, [
             'jsPath' => $jsPath ?? null,
             'cssPath' => $cssPath ?? null,
         ]);
