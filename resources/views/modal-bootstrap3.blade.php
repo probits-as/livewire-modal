@@ -17,7 +17,7 @@
                 id="myModalComponent"
                 tabindex="-1"
                 role="dialog"
-                aria-labelledby="myModalLabel"
+                aria-labelledby="myModalComponentLabel"
                 aria-hidden="true"
                 style="display: none;"
         >
